@@ -5,7 +5,7 @@ const btnEl = document.querySelector('.btn');
 /**
  * generate a list of 10 random eamil and print them on page
  * @param {HTML} container 
- * @returns {string} return a series of string containing the murkup for the email list
+ * @returns {void} return a series of string containing the murkup for the email list
  */
 function getEmail (container){
     container.innerHTML = '';
@@ -16,7 +16,7 @@ function getEmail (container){
         
         //pars json obj promis
         .then(email => {
-            const markup = `<li>${email.response}</li>`
+            const markup = `<li class="py-3">${email.response}</li>`
             container.innerHTML += markup;
             console.log(container.innerHTML);
         })
