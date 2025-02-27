@@ -5,7 +5,7 @@ const btnEl = document.querySelector('.btn');
 /**
  * generate a list of 10 random eamil and print them on page
  * @param {HTML} container 
- * @returns {void} return a series of string containing the murkup for the email list
+ * @returns {void}
  */
 function getEmail (container){
     container.innerHTML = '';
