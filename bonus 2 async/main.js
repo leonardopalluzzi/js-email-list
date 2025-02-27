@@ -1,7 +1,6 @@
 // select elements from dom
 const emailListEl = document.querySelector('.email_list');
 const btnEl = document.querySelector('.btn');
-const emailList = [];
 
 async function fetchEmail() {
     const response = await fetch('https://flynn.boolean.careers/exercises/api/random/mail')
