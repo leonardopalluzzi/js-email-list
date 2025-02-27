@@ -3,3 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+ul{
+    list-style: none;
+    li{
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+}
