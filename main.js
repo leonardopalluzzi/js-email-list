@@ -2,45 +2,30 @@
 const emailListEl = document.querySelector('.email_list');
 const btnEl = document.querySelector('.btn');
 
-
-// for(let i = 0; i < 9; i++){
-//     fetch('https://flynn.boolean.careers/exercises/api/random/mail')
-//         //recover API content promis
-//         .then(response => response.json()) 
-        
-//         //pars json obj promis
-//         .then(email => {
-//             const markup = `<li>${email.response}</li>`
-//             emailListEl.innerHTML += markup
-//         })
-//         .catch(error => console.error(error));
-//     console.log(emailListEl);
-// }
-
-
-function getEmail (list){
-    list.innerHTML = '';
-    fetch('https://flynn.boolean.careers/exercises/api/random/mail')
+/**
+ * generate a list of 10 random eamil and print them on page
+ * @param {HTML} container 
+ * @returns {string} return a series of string containing the murkup for the email list
+ */
+function getEmail (container){
+    container.innerHTML = '';
+    for(let i = 0; i < 10; i++){
+        fetch('https://flynn.boolean.careers/exercises/api/random/mail')
         //recover API content promis
         .then(response => response.json()) 
         
         //pars json obj promis
         .then(email => {
             const markup = `<li>${email.response}</li>`
-            list.innerHTML += markup
+            container.innerHTML += markup;
+            console.log(container.innerHTML);
         })
         .catch(error => console.error(error));
-    return list
+    }
 }
 
-console.log(getEmail(emailListEl));
-
-for(let i = 0; i < 9; i++){
-    getEmail(emailListEl);
-}
+getEmail(emailListEl);
 
 btnEl.addEventListener('click', () => {
-    for(let i = 0; i < 9; i++){
-        getEmail(emailListEl);
-    }
+    getEmail(emailListEl);
 })
