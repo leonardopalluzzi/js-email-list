@@ -27,11 +27,11 @@ async function getEmailArray() {
     return emailArr;
 }
 
-async function getListMarkup(arr, container) {
-    arr = await getEmailArray();
+async function getListMarkup(container) {
+    const emailArray = await getEmailArray();
     let markup = '';
-    for (let i = 0; i < arr.length; i++) {
-        markup += `<li class="py-3">${arr[i]}</li>`;
+    for (let i = 0; i < emailArray.length; i++) {
+        markup += `<li class="py-3">${emailArray[i]}</li>`;
     }
     container.innerHTML = markup
     //console.log(markup);
@@ -39,9 +39,8 @@ async function getListMarkup(arr, container) {
     return markup
 }
 
-getListMarkup(getEmailArray(), emailListEl);
+getListMarkup(emailListEl);
 
 btnEl.addEventListener('click', () => {
-    getEmailArray();
-    getListMarkup(getEmailArray(), emailListEl);
+    getListMarkup(emailListEl);
 })
